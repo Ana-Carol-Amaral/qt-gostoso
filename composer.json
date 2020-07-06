@@ -1,0 +1,17 @@
+{
+    "name": "carol/quase-tudo-gostoso",
+    "authors": [
+        {
+            "name": "Carol",
+            "email": "acarolina.anajo@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\" : "app/"
+        }
+    }
+}
