@@ -3,6 +3,7 @@
 namespace app\site\controller;
 
 use app\core\Controller;
+
 use app\site\entitie\Receita;
 use app\site\model\ReceitaModel;
 
@@ -28,31 +29,19 @@ class ReceitaController extends Controller
 
     public function editar()
     {
-        $id = get('id');
-
-        $this->view('receita/editar',[
-            'receita' => $$this->receitaModel->readById($id)
-        ]);
+        $this->view('receita/editar',[]);
     }
 
     /*### INTERNAL ###*/
 
     public function insert()
     {
-        $receita = new Receita(
-            null,
-            post('txtTitulo'),
-            post('txtConteudo', FILTER_SANITIZE_SPECIAL_CHARS),
-            null,
-            post('txtTags'),
-            getCurrentDate()
-        );
+        $receita = $this->getInput();
 
         $result = $this->receitaModel->insert($receita);
 
-        if($result <= 0)
-        {
-            $this->showMessage('Erro', 'Ocorreu um erro no cadastro, tente novamente mais tarde.');
+        if ($result <= 0) {
+            $this->showMessage('Erro', 'Houve um erro ao tentar cadastrar, tente novamente mais tarde.');
             return;
         }
 

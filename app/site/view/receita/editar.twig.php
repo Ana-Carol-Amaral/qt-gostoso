@@ -5,6 +5,7 @@
 {% block body %}
 <div class="max-width mt-3">
     <h1>Editar Receita</h1>
+    
     <hr>
     
     <form action="{{BASE}}?url=update&id={{receita.id}}" method="post" id="frmNovaReceita">

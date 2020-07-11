@@ -1,6 +1,9 @@
 <?php
 
 define('BASE', '/quase-tudo-gostoso/');
+define('HOST', 'http://localhost/quase-tudo-gostoso/');
+
+define('DATE_TIME', 'd/m/Y H:i:s');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
