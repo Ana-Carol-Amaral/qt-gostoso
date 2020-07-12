@@ -36,15 +36,18 @@ class ReceitaController extends Controller
 
     public function insert()
     {
-        $receita = $this->getInput();
+        $receita = new Receita(
+            null,
+            post('txtTitulo'),
+            post('txtConteudo', FILTER_SANITIZE_SPECIAl_CHARS),
+            null,
+            post('txtTags'),
+            getCurrentDate()
+        );
 
-        $result = $this->receitaModel->insert($receita);
-
-        if ($result <= 0) {
-            $this->showMessage('Erro', 'Houve um erro ao tentar cadastrar, tente novamente mais tarde.');
+        if($this->receitaModel->insert($receita) <= 0){
+            $this->showMessage('Erro', 'Ocorreu um erro no cadastro, tente novamente.');
             return;
         }
-
-        redirect(BASE . '?url=editar&id=' . $result);
     }
 }

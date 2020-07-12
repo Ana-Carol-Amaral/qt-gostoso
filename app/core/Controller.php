@@ -18,7 +18,7 @@ class Controller
     protected function showMessage(string $title, string $message)
     {
         $this->view('partials/message', [
-            'title' => $title,
+            'title'   => $title,
             'message' => $message
         ]);
     }
