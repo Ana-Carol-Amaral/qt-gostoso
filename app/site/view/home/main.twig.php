@@ -7,11 +7,11 @@
     <div class="row">
         {% for item in receita %}
         <div class="col-md-3" style="margin:0;">
-            <div class="card border-info mb-3" style="max-width: 20rem;">
+            <div class="card border-secondary mb-3" style="max-width: 20rem;">
                 <div class="card-header" style="width:100%;">{{item.titulo}}</div>
                 <div class="card-body">
                     <p class="card-text">{{item.dataPublicacao | date(DATE_TIME) }}</p>
-                    <a href="{{BASE}}?url=ver&id={{item.id}}" class="btn btn-outline-info w-100">Visualizar</a>
+                    <a href="{{BASE}}?url=ver&id={{item.id}}" class="btn btn-outline-secondary w-100">Visualizar</a>
                 </div>
             </div>
         </div>

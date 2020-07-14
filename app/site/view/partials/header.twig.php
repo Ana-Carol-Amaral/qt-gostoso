@@ -1,8 +1,8 @@
-<header class="bg-primary">
+<header class="bg-dark">
     <div class="max-width">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{BASE}}" aria-label="Logo Quase Tudo Gostoso">
-                <img src="{{BASE}}assets/img/logo.svg" alt="Logo Quase Tudo Gostoso" class="logo">
+                <img src="{{BASE}}assets/img/logo.png" alt="Logo Quase Tudo Gostoso" class="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0" method="get" action="{{BASE}}?url=busca" id="frmBusca">
                     <input class="form-control mr-sm-2" type="text" placeholder="O que você procura?" id="txtTermoBusca">
-                    <button class="btn btn-black my-2 my-sm-0" type="submit">Buscar</button>
+                    <button class="btn btn-pink my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
             </div>
         </nav>

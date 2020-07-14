@@ -8,7 +8,7 @@ define('DATE_TIME', 'd/m/Y H:i:s');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '1234');
-define('DB_NAME', 'qt-gostoso');
+define('DB_NAME', 'qt_gostoso');
 
 $router = [
     /* VIEW */

@@ -5,6 +5,7 @@
 {% block body %}
 <div class="max-width mt-3">
     <h1>Editar Receita</h1>
+
     <hr>
     
     <form action="{{BASE}}?url=update&id={{receita.id}}" method="post" id="frmNovaReceita">
@@ -16,6 +17,7 @@
                     <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" value="{{receita.titulo}}">
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="txtTags">Tags</label>
@@ -23,6 +25,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
@@ -31,6 +34,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div id="dvalert">
@@ -38,14 +42,16 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12 text-right">
-                <button class="btn btn-success" type="submit">Editar</button>
+                <button class="btn btn-pink" type="submit">Editar</button>
             </div>
         </div>
     </form>
 </div>
 {% endblock %}
+
 {% block scripts %}
 <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
 <script>

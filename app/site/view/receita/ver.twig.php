@@ -9,23 +9,29 @@
 <div class="max-width mt-3">
     <h1>{{receita.titulo}}</h1>
     <p>Publicado em: {{receita.dataPublicacao | date(DATE_TIME) }}</p>
-    <a href="{{BASE}}?url=editar&id={{receita.id}}" class="btn btn-sm btn-warning">Editar</a>
-    <a href="{{BASE}}?url=delete&id={{receita.id}}" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente deletar?')">Delete</a>
+    
+    <a href="{{BASE}}?url=editar&id={{receita.id}}" class="btn btn-sm btn-primary">Editar</a>
+    <a href="{{BASE}}?url=delete&id={{receita.id}}" class="btn btn-sm btn-info" onclick="return confirm('Deseja realmente deletar?')">Delete</a>
+    
     <hr>
+    
     <div id="dvConteudoReceita">
         {{ receita.conteudo | raw }}
     </div>
+    
     <hr>
+    
     <div>
         <h3>Tags</h3>
         {% for t in tags %}
-        <span class="badge badge-primary">{{t}}</span>
+        <span class="badge badge-secondary">{{t}}</span>
         {% endfor %}
     </div>
+
     <hr>
+    
     <div>
         <div class="fb-comments" data-href="{{HOST}}?url=ver&id={{id}}" data-numposts="6" data-width="100%" data-colorscheme="dark"></div>
     </div>
-</div>
 </div>
 {% endblock %}

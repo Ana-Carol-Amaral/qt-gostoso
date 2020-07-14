@@ -1,9 +1,7 @@
 {% extends 'partials/body.twig.php' %}
 
 {% block title %}
-
 {{title}}
-
 {% endblock %}
 
 
