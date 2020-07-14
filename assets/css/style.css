@@ -15,21 +15,10 @@ p {
     margin: 5px 0;
 }
 
-.btn-pink{
-    background-color: #F3969A !important;
+.btn-black {
+    background-color: var(--dark-color) !important;
     color: #FFF;
 }
-
-.btn-pink:hover{
-    background-color: black !important;
-    color: #FFF;
-}
-
-.btn-pink:active{
-    background-color: #ee686e!important;
-    color: #FFF;
-}
-
 
 .max-width {
     max-width: var(--max-width);

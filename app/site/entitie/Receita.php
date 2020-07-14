@@ -21,27 +21,33 @@ class Receita
         $this->dataPublicacao = $dataPublicacao;
     }
 
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTitulo(){
+    public function getTitulo()
+    {
         return $this->titulo;
     }
 
-    public function getConteudo(){
+    public function getConteudo()
+    {
         return $this->conteudo;
     }
 
-    public function getThumb(){
+    public function getThumb()
+    {
         return $this->thumb;
     }
 
-    public function getTags(){
+    public function getTags()
+    {
         return $this->tags;
     }
 
-    public function getDataPublicacao(){
+    public function getDataPublicacao()
+    {
         return $this->dataPublicacao;
     }
 }

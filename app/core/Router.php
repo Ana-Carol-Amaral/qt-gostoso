@@ -6,10 +6,10 @@ $controller = 'HomeController';
 $metodo = 'index';
 
 
-foreach($router as $key => $value){
-    if($req == $key){
+foreach ($router as $key => $value) {
+    if ($req == $key) {
         $ex = explode('@', $value);
-        
+
         $controller = $ex[0];
         $metodo = $ex[1];
         break;

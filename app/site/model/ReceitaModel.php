@@ -7,6 +7,7 @@ use app\site\entitie\Receita;
 
 class ReceitaModel
 {
+
     private $pdo;
 
     public function __construct()
@@ -25,11 +26,33 @@ class ReceitaModel
             ':datapublicacao' => $receita->getDataPublicacao()
         ];
 
-        if(!$this->pdo->ExecuteNonQuery($sql, $params))
+        if (!$this->pdo->ExecuteNonQuery($sql, $params))
             return -1;
 
         return $this->pdo->GetLastID();
-        
+    }
+
+    public function update(Receita $receita)
+    {
+        $sql = 'UPDATE receita SET titulo = :titulo, conteudo = :conteudo, tags = :tags WHERE id = :id';
+        $params = [
+            ':id' => $receita->getId(),
+            ':titulo' => $receita->getTitulo(),
+            ':conteudo' => $receita->getConteudo(),
+            ':tags' => $receita->getTags()
+        ];
+
+        return $this->pdo->ExecuteNonQuery($sql, $params);
+    }
+
+    public function delete(int $id)
+    {
+        $sql = 'DELETE FROM receita WHERE id = :id';
+        $params = [
+            ':id' => $id
+        ];
+
+        return $this->pdo->ExecuteNonQuery($sql, $params);
     }
 
     public function readById(int $id)
@@ -39,9 +62,47 @@ class ReceitaModel
             ':id' => $id
         ];
 
-        $this->collection(
+        return  $this->collection(
             $this->pdo->ExecuteQueryOneRow($sql, $param)
         );
+    }
+
+    public function readByTerm(string $termo)
+    {
+        $termo = strtolower($termo);
+
+        $sql = 'SELECT id, titulo, data_publicacao FROM receita WHERE LOWER(tags) LIKE :tags OR LOWER(titulo) LIKE :titulo';
+       
+        $params = [
+            ':tags' => "%{$termo}%",
+            ':titulo' => "%{$termo}%"
+        ];
+        
+        $dt = $this->pdo->ExecuteQuery($sql, $params);
+        $list = [];
+
+        foreach ($dt as $dr)
+            $list[] = $this->collection($dr);
+
+        return $list;
+    }
+
+    public function readLasts(int $quantidade = 20)
+    {
+
+        $sql = 'SELECT id, titulo, data_publicacao FROM receita ORDER BY data_publicacao DESC LIMIT :limit';
+       
+        $params = [
+            ':limit' => $quantidade
+        ];
+        
+        $dt = $this->pdo->ExecuteQuery($sql, $params);
+        $list = [];
+
+        foreach ($dt as $dr)
+            $list[] = $this->collection($dr);
+
+        return $list;
     }
 
     private function collection($param)
@@ -49,7 +110,7 @@ class ReceitaModel
         return new Receita(
             $param['id'] ?? null,
             $param['titulo'] ?? null,
-            $param['conteudo'] ?? null,
+            trataImagem(html_entity_decode($param['conteudo'] ?? null)),
             $param['thumb'] ?? null,
             $param['tags'] ?? null,
             $param['data_publicacao'] ?? null

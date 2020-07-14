@@ -5,7 +5,6 @@
 {% block body %}
 <div class="max-width mt-3">
     <h1>Editar Receita</h1>
-    
     <hr>
     
     <form action="{{BASE}}?url=update&id={{receita.id}}" method="post" id="frmNovaReceita">
@@ -41,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-right">
-                <button class="btn btn-pink" type="submit">Editar</button>
+                <button class="btn btn-success" type="submit">Editar</button>
             </div>
         </div>
     </form>

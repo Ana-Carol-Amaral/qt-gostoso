@@ -6,14 +6,17 @@ use app\core\Controller;
 
 class HomeController extends Controller
 {
+
     public function __construct()
     {
-
     }
 
     public function index()
     {
-        $this->view('home/main',[
+        $receitas = (new \app\site\model\ReceitaModel())->readLasts(25);
+
+        $this->view('home/main', [
+            'receitas' => arrayTree($receitas)
         ]);
     }
 }
